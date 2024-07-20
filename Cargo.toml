@@ -1,0 +1,33 @@
+[package]
+name = "datalake-sdk"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "datalake_sdk"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.20.0", features = ["anyhow"] }
+pyo3-asyncio = { version = "0.20", features = [
+    "tokio",
+    "tokio-runtime",
+    "attributes",
+    "pyo3-asyncio-macros",
+] }
+tokio = { version = "1", features = ["full"] }
+tokio-stream = "0.1"
+futures-util = "0.3"
+datafusion = { version = "38", features = ["default", "pyarrow"] }
+arrow-json = "51"
+parquet = "51"
+aws-config = "1"
+aws-sdk-s3 = "1"
+aws-creds = "0.37"
+aws-smithy-types = "1"
+object_store = { version = "0.9", features = ["aws", "cloud"] }
+anyhow = "1.0"
+thiserror = "1.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1.0.91"
+url = "2"
